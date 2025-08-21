@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolicyMeter Results</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        h1 { color: #333; }
+        .policy { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; border-radius: 5px; }
+        .policy h2 { margin-top: 0; }
+        .sentiment-Positive { color: green; }
+        .sentiment-Negative { color: red; }
+        .sentiment-Neutral { color: grey; }
+    </style>
+</head>
+<body>
+    <h1>PolicyMeter Sentiment Analysis</h1>
+    <div id="results">
+        {% for result in results %}
+        <div class="policy">
+            <p>{{ result.text }}</p>
+            <p><strong>Sentiment: <span class="sentiment-{{ result.sentiment }}">{{ result.sentiment }}</span></strong></p>
+        </div>
+        {% else %}
+        <p>No results to display.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
